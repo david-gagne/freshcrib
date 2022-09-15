@@ -1,0 +1,759 @@
+---
+import logo from "../freshcrib-logo-dark.svg";
+import Layout from "../layouts/Layout.astro";
+---
+
+<script>
+  // Step 1. Define all variables for FAQ toggling.
+  let questions = document.querySelectorAll(".question");
+  let togglerIcons = document.querySelectorAll(".toggler-icon");
+  let answers = document.querySelectorAll(".answer");
+
+  // Step 2. Display the appropriate answer when user clicks a question.
+  questions.forEach((question, place) => {
+    question.addEventListener("click", function () {
+      if (answers[place].classList.contains("db")) {
+        // Step 3. Hide the answer when a user clicks the question again.
+        togglerIcons[place].classList.remove("rotate45");
+        answers[place].classList.replace("db", "dn");
+      } else {
+        togglerIcons[place].classList.add("rotate45");
+        answers[place].classList.replace("dn", "db");
+      }
+    });
+  });
+</script>
+
+<style>
+  #hero {
+    background-color: var(--brand-light-blue);
+    background: linear-gradient(
+      var(--brand-light-blue),
+      var(--brand-light-green)
+    );
+    width: 95%;
+  }
+
+  #hero h1 {
+    font-size: 1.875rem;
+  }
+
+  .cta-button {
+    background-color: var(--brand-yellow);
+    height: 2.5625rem;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .how-it-works-section-description,
+  .pricing-section-byline {
+    max-width: 32.5rem;
+  }
+
+  .how-it-works-card {
+    width: 15.625rem;
+    max-width: 15.625rem;
+    height: 28rem;
+    max-height: 28rem;
+  }
+
+  .step-number {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  #pricing {
+    background-color: var(--brand-light-blue);
+    background: linear-gradient(
+      var(--brand-light-blue),
+      var(--brand-light-green)
+    );
+    width: 95%;
+  }
+
+  #sign-up {
+    background-color: var(--brand-light-blue);
+    background: linear-gradient(
+      var(--brand-light-blue),
+      var(--brand-light-green)
+    );
+    width: 95%;
+  }
+
+  .question {
+    font-family: "DM Serif Display", serif;
+    color: black;
+  }
+
+  .rotate45 {
+    transform: rotate(45deg);
+  }
+
+  #sign-up input {
+    border-bottom: 1px solid var(--brand-light-gray);
+  }
+
+  @media screen and (min-width: 48em) {
+    section#hero .hero-section-content {
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: 71.875rem;
+    }
+
+    section#hero .hero-section-content > div {
+      max-width: 40%;
+    }
+
+    section#hero .hero-section-content .hero-column-one {
+      max-width: 50%;
+    }
+
+    section#hero h1 {
+      margin-top: 0;
+    }
+
+    section#how-it-works div.card-column-one,
+    div.card-column-two {
+      flex-direction: row;
+    }
+
+    #pricing-cards {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    #price-card-one {
+      margin-right: 1.5625rem;
+    }
+
+    #price-card-two {
+      margin-left: 1.5625rem;
+    }
+  }
+
+  @media screen and (min-width: 62em) {
+    section#hero h1 {
+      font-size: 2.625rem;
+    }
+
+    section#how-it-works h2,
+    section#pricing h2,
+    section#faqs h2,
+    section#sign-up h2 {
+      font-size: 2.25rem;
+    }
+  }
+</style>
+
+<Layout>
+  <!-- Hero -->
+  <section
+    id="hero"
+    class="center pv4 ph3 br4 flex items-center justify-center"
+  >
+    <div class="hero-section-content flex items-center flex-column">
+      <!-- Column 1 -->
+      <div class="hero-column-one">
+        <h1 class="lh-copy">
+          Professional home cleaning that's so affordable you'll think we don't
+          know math.
+        </h1>
+
+        <p class="lh-copy">
+          We believe your time is better spent doing the things that matter most
+          to you, not cleaning your house. With FreshCrib, you'll get four home
+          cleanings a month so you never have to worry about dusting another
+          ceiling fan again.
+        </p>
+
+        <a
+          class="cta-button link fw5 flex items-center justify-center mt4 center br2"
+          href="#sign-up">Sign Up</a
+        >
+      </div>
+
+      <!-- Column 2 -->
+      <div class="mt3 pt3">
+        <div>
+          <!-- Benefit one -->
+          <div class="mv4">
+            <span class="flex items-center">
+              <img src="/checkmark.svg" width="18" alt="" />
+              <h3 class="di ml2 mv0">Breath easier indoors</h3>
+            </span>
+            <p class="lh-copy mt1">
+              Dust and dander collect fast, but we're faster. With a home
+              cleaning once per week, we'll keep even the quickest dust bunnies
+              at bay.
+            </p>
+          </div>
+
+          <!-- Benefit two -->
+          <div class="mv4">
+            <span class="flex items-center">
+              <img src="/checkmark.svg" width="18" alt="" />
+              <h3 class="di ml2 mv0">More time for loved ones</h3>
+            </span>
+            <p class="lh-copy mt1">
+              Leave the scubbing countertops and mopping floors to us so you can
+              get back to spending time with your family and friends.
+            </p>
+          </div>
+
+          <!-- Benefit three -->
+          <div class="mv4">
+            <span class="flex items-center">
+              <img src="/checkmark.svg" width="18" alt="" />
+              <h3 class="di ml2 mv0">Always be in the know</h3>
+            </span>
+            <p class="lh-copy mt1">
+              To provide you the most affordable home cleaning service, we took
+              out the guesswork. You supply the stuff you want used in your home
+              and we'll do the work.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section
+    id="how-it-works"
+    class="center pv4 ph3 br4 flex items-center justify-center mb5"
+  >
+    <div
+      class="how-it-works-section-content mt4 flex items-center flex-column tc"
+    >
+      <h2 class="f3">How it works</h2>
+
+      <p class="lh-copy mv0 how-it-works-section-description">
+        Our unique home cleaning subcription model gives you the freedom to pay
+        a single monthly price and receive up to four visits from a dedicated
+        home cleaning professional every month.
+      </p>
+
+      <!-- How it works cards -->
+      <div class="mt4 w-100">
+        <!-- Card Column 1 -->
+        <div
+          class="card-column-one flex justify-between flex-column items-center"
+        >
+          <!-- Card 1 -->
+          <div
+            class="how-it-works-card w-100 ba b--brand-yellow br3 pa3 mv2 tl"
+          >
+            <p class="dib flex items-center">
+              <span
+                class="step-number br-100 bg--brand-yellow dib flex justify-center items-center mr2"
+                >1</span
+              > Rally your neighborhood.
+            </p>
+
+            <p class="card-title f4 dark">Establish a "zone"</p>
+
+            <p class="lh-copy">
+              To provide you the best possible cleaning experience, we assign
+              our cleaning accounts by neighborhood "zones", and limit the
+              amount of clients a zone can have. <br /><br /> We only start scheduling
+              cleaning appointments when we have enough residents signed up in a
+              zone.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="how-it-works-card w-100 ba b--brand-yellow br3 pa3 mv2 tl"
+          >
+            <p class="dib flex items-center">
+              <span
+                class="step-number br-100 bg--brand-yellow dib flex justify-center items-center mr2"
+                >2</span
+              > Get a walkthrough profile.
+            </p>
+
+            <p class="card-title f4 dark">Show us around</p>
+
+            <p class="lh-copy">
+              Once we have enough commitments to start scheduling cleanings,
+              we'll meet with you to do a walkthrough of your home to make your
+              account profile for your cleaning professional. <br /><br /> We'll
+              gather details and snap some photos (with your permission) to ensure
+              our best work.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card Column 2 -->
+        <div
+          class="card-column-two flex justify-between flex-column items-center"
+        >
+          <!-- Card 3 -->
+          <div
+            class="how-it-works-card w-100 ba b--brand-yellow br3 pa3 mv2 tl"
+          >
+            <p class="dib flex items-center">
+              <span
+                class="step-number br-100 bg--brand-yellow dib flex justify-center items-center mr2"
+                >3</span
+              > Meet your home cleaner
+            </p>
+
+            <p class="card-title f4 dark">Review cleaner profile</p>
+
+            <p class="lh-copy">
+              Before your first cleaning visit, we'll send you a profile page
+              with some details about your dedicated home cleaning professional. <br
+              /><br />
+              We understand letting a stranger into your personal space is a big
+              deal, so we'll take this time to answer any questions you may have
+              about your cleaner's profile.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="how-it-works-card w-100 ba b--brand-yellow br3 pa3 mv2 tl"
+          >
+            <p class="dib flex items-center">
+              <span
+                class="step-number br-100 bg--brand-yellow dib flex justify-center items-center mr2"
+                >4</span
+              > Let the cleanings begin!
+            </p>
+
+            <p class="card-title f4 dark">Choose your time slot</p>
+
+            <p class="lh-copy">
+              With all of the other stuff out of the way, it's time to choose
+              your cleaning slot. <br /><br />
+              FreshCrib works on a first come, first served basis, with the people
+              who signed up earliest getting first pick of which spot they want for
+              their cleanings - so don't hesitate to sign up!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section
+    id="pricing"
+    class="center pv4 ph3 br4 flex items-center justify-center mb5"
+  >
+    <div class="pricing-section-content flex items-center flex-column tc">
+      <div>
+        <h2 class="f3">Pricing</h2>
+
+        <p class="lh-copy mv0 pricing-section-byline">
+          Unbelievable pricing for an impeccable value.
+        </p>
+      </div>
+
+      <!-- Pricing cards -->
+      <div id="pricing-cards" class="w-100 mt4 flex flex-column">
+        <!-- Card 1 -->
+        <div id="price-card-one" class="w-100 bg-white pa3 br3 mv3">
+          <h3 class="f4">Essentials • 2bd</h3>
+          <p class="f5 mv0">2 bedrooms, 1 bathroom</p>
+          <h3 class="f4 mb4">$259/month</h3>
+
+          <!-- Features list -->
+          <ul class="list pl0">
+            <li
+              class="w-100 bg-light-gray flex items-center justify-between br-pill pv2 pl2 pr1 mv3"
+            >
+              <p class="mv0 f6 fw5 black">Four cleanings a month</p>
+              <img class="ml2" src="circle-checkmark.svg" width="17" alt="" />
+            </li>
+
+            <li
+              class="w-100 bg-light-gray flex items-center justify-between br-pill pv2 pl2 pr1 mv3"
+            >
+              <p class="mv0 f6 fw5 black">Dedicated cleaning pro</p>
+              <img class="ml2" src="circle-checkmark.svg" width="17" alt="" />
+            </li>
+
+            <li
+              class="w-100 bg-light-gray flex items-center justify-between br-pill pv2 pl2 pr1 mv3"
+            >
+              <p class="mv0 f6 fw5 black">No mystery chemicals</p>
+              <img class="ml2" src="circle-checkmark.svg" width="17" alt="" />
+            </li>
+
+            <li
+              class="w-100 bg-light-gray flex items-center justify-between br-pill pv2 pl2 pr1 mv3"
+            >
+              <p class="mv0 f6 fw5 black">No cross contamination</p>
+              <img class="ml2" src="circle-checkmark.svg" width="17" alt="" />
+            </li>
+
+            <li
+              class="w-100 bg-light-gray flex items-center justify-between br-pill pv2 pl2 pr1 mv3"
+            >
+              <p class="mv0 f6 fw5 black">Discounted deep cleans</p>
+              <img class="ml2" src="circle-checkmark.svg" width="17" alt="" />
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div id="price-card-two" class="w-100 bg-white pa3 br3 mv3">
+          <h3 class="f4">Essentials • 3bd</h3>
+          <p class="f5 mv0">3 bedrooms, 2 bathroom</p>
+          <h3 class="f4 mb4">$289/month</h3>
+
+          <!-- Features list -->
+          <ul class="list pl0">
+            <li
+              class="w-100 bg-light-gray flex items-center justify-between br-pill pv2 pl2 pr1 mv3"
+            >
+              <p class="mv0 f6 fw5 black">Four cleanings a month</p>
+              <img class="ml2" src="circle-checkmark.svg" width="17" alt="" />
+            </li>
+
+            <li
+              class="w-100 bg-light-gray flex items-center justify-between br-pill pv2 pl2 pr1 mv3"
+            >
+              <p class="mv0 f6 fw5 black">Dedicated cleaning pro</p>
+              <img class="ml2" src="circle-checkmark.svg" width="17" alt="" />
+            </li>
+
+            <li
+              class="w-100 bg-light-gray flex items-center justify-between br-pill pv2 pl2 pr1 mv3"
+            >
+              <p class="mv0 f6 fw5 black">No mystery chemicals</p>
+              <img class="ml2" src="circle-checkmark.svg" width="17" alt="" />
+            </li>
+
+            <li
+              class="w-100 bg-light-gray flex items-center justify-between br-pill pv2 pl2 pr1 mv3"
+            >
+              <p class="mv0 f6 fw5 black">No cross contamination</p>
+              <img class="ml2" src="circle-checkmark.svg" width="17" alt="" />
+            </li>
+
+            <li
+              class="w-100 bg-light-gray flex items-center justify-between br-pill pv2 pl2 pr1 mv3"
+            >
+              <p class="mv0 f6 fw5 black">Discounted deep cleans</p>
+              <img class="ml2" src="circle-checkmark.svg" width="17" alt="" />
+            </li>
+          </ul>
+        </div>
+      </div>
+      <a
+        class="w-100 cta-button link fw5 flex items-center justify-center mt4 center br2 mw5"
+        href="#sign-up">Sign Up</a
+      >
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section
+    id="faqs"
+    class="center pv4 ph3 br4 flex items-center justify-center mb5"
+  >
+    <div class="faqs-section-content mt4 flex items-center flex-column tc">
+      <h2 class="f3">Frequently asked questions</h2>
+
+      <!-- Q&A container -->
+      <div class="w-100 center mt4">
+        <!-- Question -->
+        <article
+          class="w-100 pb3 mb4 flex items-center flex-column tl bb b--brand-gray measure"
+        >
+          <div class="question pointer w-100 flex justify-between items-center">
+            <p class="lh-copy f4">How should I prepare for the first visit?</p>
+
+            <img
+              class="pa3 toggler-icon"
+              src="/plus-icon.svg"
+              width="20"
+              height="20"
+              alt=""
+            />
+          </div>
+
+          <div class="flex justify-between items-center">
+            <p class="dn answer lh-copy">
+              Our cleaning subscription only covers basic maintenance cleanings.
+              To get the most value for you money, we encourage you to do a
+              thorough cleaning and tidying up prior to your cleaner's first
+              visit.
+            </p>
+          </div>
+        </article>
+
+        <!-- Question -->
+        <article
+          class="w-100 pb3 mb4 flex items-center flex-column tl bb b--brand-gray measure"
+        >
+          <div class="question pointer w-100 flex justify-between items-center">
+            <p class="lh-copy f4">What supplies will I need for the service?</p>
+
+            <img
+              class="pa3 toggler-icon"
+              src="/plus-icon.svg"
+              width="20"
+              height="20"
+              alt=""
+            />
+          </div>
+
+          <div class="flex justify-between items-center">
+            <p class="dn answer lh-copy">
+              You can find a list of both the supplies we require and recommend
+              our clients to have <a class="dark" href="">here</a>.
+            </p>
+          </div>
+        </article>
+
+        <!-- Question -->
+        <article
+          class="w-100 pb3 mb4 flex items-center flex-column tl bb b--brand-gray measure"
+        >
+          <div class="question pointer w-100 flex justify-between items-center">
+            <p class="lh-copy f4">How does the zone system work exactly?</p>
+
+            <img
+              class="pa3 toggler-icon"
+              src="/plus-icon.svg"
+              width="20"
+              height="20"
+              alt=""
+            />
+          </div>
+
+          <div class="flex justify-between items-center">
+            <p class="dn answer lh-copy">
+              To charge uniform rates for our clients, we contract and dispath
+              home cleaners by neighborhood or "zone". The way it works is we
+              only begin providing cleaning services when there are enough
+              clients in a zone to cover the cost of operating in that zone.
+              <br /><br />
+              This has the added benefit of allowing us to assign a dedicated home
+              cleaner to each client, which helps establish a network of trusting
+              client-provider relationships over time.
+            </p>
+          </div>
+        </article>
+
+        <!-- Question -->
+        <article
+          class="w-100 pb3 mb4 flex items-center flex-column tl bb b--brand-gray measure"
+        >
+          <div class="question pointer w-100 flex justify-between items-center">
+            <p class="lh-copy f4">Who are the home cleaning professionals?</p>
+
+            <img
+              class="pa3 toggler-icon"
+              src="/plus-icon.svg"
+              width="20"
+              height="20"
+              alt=""
+            />
+          </div>
+
+          <div class="flex justify-between items-center">
+            <p class="dn answer lh-copy">
+              The cleaners we work with are hard-working people just like you!
+              The majority of the home cleaning professionals we work with are
+              college students and cleaning industry veterans.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section
+    id="sign-up"
+    class="center pv4 ph3 br4 flex items-center justify-center mb2"
+  >
+    <div class="sign-up-section-content flex items-center flex-column tc">
+      <div class="w-100">
+        <h2 class="f3">Sign Up</h2>
+
+        <p class="lh-copy mv0 pricing-section-byline">
+          Let us get to work cleaning so you don't have to.
+        </p>
+
+        <!-- Sign Up form -->
+        <form
+          class="w-100 mv5 bg-white ph3 pv4 tl br3"
+          name="sign-up"
+          method="post"
+        >
+          <h3 class="tc pt2 pb2">Reserve your spot.</h3>
+
+          <small class="db mb4 tc"
+            ><sup>*</sup> Indicates a required field (but you already knew that)</small
+          >
+
+          <!-- First name -->
+          <label for="first-name">First name*</label>
+          <input
+            class="db mt2 mb4 w-100 pv2 ba b--white"
+            type="text"
+            name="first-name"
+            id="first-name"
+            placeholder="First name"
+            required
+          />
+
+          <!-- Last name -->
+          <label for="last-name">Last name*</label>
+          <input
+            class="db mt2 mb4 w-100 pv2 ba b--white"
+            type="text"
+            name="last-name"
+            id="last-name"
+            placeholder="Last name"
+            required
+          />
+
+          <!-- Email address -->
+          <label for="email-address">Email address*</label>
+          <input
+            class="db mt2 mb4 w-100 pv2 ba b--white"
+            type="email"
+            name="email"
+            id="email-address"
+            placeholder="Email address"
+          />
+
+          <!-- Phone number -->
+          <label for="phone-number">Phone number*</label>
+          <input
+            class="db mt2 mb4 w-100 pv2 ba b--white"
+            type="tel"
+            name="phone"
+            id="phone-number"
+            placeholder="Phone number"
+            required
+          />
+
+          <!-- Address -->
+          <label for="address">Address*</label>
+          <input
+            class="db mv2 w-100 pv2 ba b--white"
+            type="text"
+            name="address"
+            id="address"
+            placeholder="Street number"
+            required
+          />
+          <input
+            class="db mv2 w-100 pv2 ba b--white"
+            type="text"
+            name="address"
+            id="address"
+            placeholder="City, State"
+            required
+          />
+          <input
+            class="db mt2 mb4 w-100 pv2 ba b--white"
+            type="text"
+            name="address"
+            id="address"
+            placeholder="Zip code"
+            required
+          />
+
+          <!-- Residence type -->
+          <label for="residence-type">Residence type*</label>
+          <select
+            class="db mt2 mb4 w-100 pv2 ba b--white"
+            name="residence-types"
+            id="residence-type"
+            required
+          >
+            <option value="">Select a residence type</option>
+            <option value="house">House</option>
+            <option value="apartment/condo">Apartment/Condo</option>
+            <option value="townhouse">Townhouse</option>
+          </select>
+
+          <!-- Referral code -->
+          <label for="referral-code">Referral code</label>
+          <input
+            class="db mt2 mb4 w-100 pv2 ba b--white"
+            type="text"
+            name="referral-code"
+            id="referral-code"
+            placeholder="Referral code"
+          />
+
+          <input
+            type="submit"
+            value="Reserve your spot"
+            class="w-100 cta-button link fw5 flex items-center justify-center mt4 center br2 mw5 ba b--white"
+          />
+
+          <small class="lh-copy mv3 db measure-narrow center tc">
+            We'll only ever contact you for relevant reasons. Spam is for
+            sandwiches, anyway.
+          </small>
+        </form>
+
+        <footer class="w-100 mt5 pt5">
+          <!-- Footer links -->
+          <div
+            class="w-100 footer-links flex flex-column flex-row-ns items-center"
+          >
+            <!-- Column 1 -->
+            <div class="w-50">
+              <ul class="list pl0">
+                <li>
+                  <a class="dark no-underline pv3 dib o-80" href="#how-it-works"
+                    >How it works</a
+                  >
+                </li>
+                <li>
+                  <a class="dark no-underline pv3 dib o-80" href="#pricing"
+                    >Pricing</a
+                  >
+                </li>
+                <li>
+                  <a class="dark no-underline pt3 dib o-80" href="#faqs">FAQs</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="w-50">
+              <ul class="list pl0">
+                <li>
+                  <a
+                    class="dark no-underline pv3 dib o-80 lh-copy"
+                    href="mailto:hello@freshcrib.co"
+                    >Earn money with FreshCrib</a
+                  >
+                </li>
+                <li>
+                  <a class="dark no-underline pv3 dib o-80" href=""
+                    >Client resources</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Copyright notice -->
+          <div>
+            <div class="mt4">
+              <img src={logo} alt="FreshCrib logo" width="120" />
+            </div>
+            <div>
+              <p class="mb0 f6">
+                © {new Date().getFullYear()}, FreshCrib. All Rights Reserved.
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,183 @@
+---
+import logo from "../freshcrib-logo-dark.svg";
+---
+
+<script>
+  // Step 1. Define variables for list icon element and mobile menu.
+  let body = document.querySelector("body");
+  let displayMobileMenuIcon = document.getElementById("displayMobileMenu");
+  let mobileMenu = document.getElementById("mobileMenu");
+  let hideMobileMenuIcon = document.getElementById("hideMobileMenu");
+
+  // Step 2. Display mobile menu when displayMenuIcon is clicked and change icon to "x" icon.
+  displayMobileMenuIcon.addEventListener("click", function () {
+    body.classList.add("overflow-hidden");
+    mobileMenu.classList.replace("dn", "db");
+    displayMobileMenuIcon.classList.replace("db", "dn");
+    hideMobileMenuIcon.classList.replace("dn", "db");
+  });
+
+  // Step 3. Hide the mobile menu when user clicks hideMobileMenu icon and set displayMenuIcon to display block.
+  hideMobileMenuIcon.addEventListener("click", function () {
+    body.classList.remove("overflow-hidden");
+    mobileMenu.classList.replace("db", "dn");
+    displayMobileMenuIcon.classList.replace("dn", "db");
+    hideMobileMenuIcon.classList.replace("db", "dn");
+  });
+
+  // Step 4. Hide the mobile menu when user clicks the mobileMenu .
+  mobileMenu.addEventListener("click", function () {
+    body.classList.remove("overflow-hidden");
+    mobileMenu.classList.replace("db", "dn");
+    displayMobileMenuIcon.classList.replace("dn", "db");
+    hideMobileMenuIcon.classList.replace("db", "dn");
+  });
+</script>
+
+<style>
+  header {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    padding: 0 1rem;
+  }
+
+  header > div {
+    max-width: 71.875rem;
+  }
+
+  menu#mobileMenu {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    top: 4rem;
+  }
+
+  .link,
+  .link span {
+    color: black;
+    border-width: 2px;
+  }
+
+  .cta-button {
+    background-color: var(--brand-yellow);
+    width: 8.125rem;
+    height: 2.5625rem;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  #mobileHeaderNav {
+    display: block;
+  }
+
+  #desktopHeaderNav {
+    display: none;
+  }
+
+  @media screen and (min-width: 30em) and (max-width: 48em) {
+    header {
+      padding: 0 1.5625rem;
+    }
+  }
+
+  @media screen and (min-width: 48em) {
+    header {
+      padding: 0 1.875rem;
+    }
+
+    #mobileHeaderNav {
+      display: none;
+    }
+
+    #desktopHeaderNav {
+      display: flex;
+    }
+  }
+</style>
+
+<header class="w-100 h3 flex items-center fixed top-0 z-9999">
+  <div class="w-100 flex items-center justify-between center">
+    <!-- FreshCrib logo -->
+    <a href="/">
+      <img src={logo} width="120" alt="FreshCrib logo" />
+    </a>
+
+    <!-- Header navigation (for screens 768px and under) -->
+    <div id="mobileHeaderNav">
+      <!-- Display list icon when mobile menu is hidden -->
+      <img
+        id="displayMobileMenu"
+        class="db pa3"
+        src="/list-icon.svg"
+        width="18"
+        height="14"
+        alt="display button for mobile menu"
+      />
+
+      <!-- Display x icon when mobile menu is visible -->
+      <img
+        id="hideMobileMenu"
+        class="dn pa3"
+        src="/x-icon.svg"
+        width="18"
+        height="14"
+        alt="hide button for mobile menu"
+      />
+    </div>
+
+    <!-- Tablet/desktop menu for display on screens 768 and up -->
+    <menu id="desktopHeaderNav" class="list inline-flex pl0 flex items-center">
+      <li>
+        <a class="dib link fw5 pb2 mh3 bb b--black" href="#how-it-works"
+          >How it works</a
+        >
+      </li>
+
+      <li>
+        <a class="dib link fw5 pb2 mh3 bb b--black" href="#pricing">Pricing</a>
+      </li>
+
+      <li>
+        <a class="dib link fw5 pb2 mh4 bb b--black" href="#faqs">FAQs</a>
+      </li>
+
+      <li class="ml3">
+        <a
+          class="cta-button link fw5 flex items-center justify-center center br2"
+          href="#sign-up">Sign Up</a
+        >
+      </li>
+    </menu>
+  </div>
+</header>
+
+<!--------------------------- SEPARATE ELEMENT FROM HEADER ELEMENT --------------------------->
+
+<!-- Mobile menu for display on screens 768px and under -->
+<menu
+  id="mobileMenu"
+  class="dn list pl0 pv4 mt0 tc fixed overflow-hidden w-100 vh-100 z-999"
+>
+  <li>
+    <a class="w-100 dib link fw5" href="#how-it-works"
+      ><span class="pt3 pb2 dib mv2 bb b--black">How it works</span>
+    </a>
+  </li>
+
+  <li>
+    <a class="w-100 dib link fw5" href="#pricing"
+      ><span class="pt3 pb2 dib mv2 bb b--black">Pricing</span>
+    </a>
+  </li>
+
+  <li>
+    <a class="w-100 dib link fw5" href="#faqs"
+      ><span class="pt3 pb2 dib mv2 bb b--black">FAQs</span>
+    </a>
+  </li>
+
+  <li>
+    <a
+      class="cta-button link fw5 flex items-center justify-center mt4 center br2"
+      href="#sign-up">Sign Up</a
+    >
+  </li>
+</menu>

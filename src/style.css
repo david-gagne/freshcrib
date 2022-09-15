@@ -1,0 +1,71 @@
+/* Bring in Tachyons CSS libary */
+@import url("https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css");
+
+/* DM Serif Google Font loaded from Font Source */
+@import url("@fontsource/dm-serif-display");
+
+/* DM Serif Google Font loaded from Font Source */
+@import url("@fontsource/dm-sans");
+@import url("@fontsource/dm-sans/500.css");
+
+/* Brand colors */
+:root {
+  --dark: #353535;
+  --brand-light-blue: #d0e5fb;
+  --brand-yellow: #ffc91c;
+  --brand-blue: #57a5f2;
+  --brand-green: #59c67e;
+  --brand-light-green: #cfefda;
+  --brand-red: #ec4d4d;
+  --brand-gray: #a3a3a3;
+  --brand-light-gray: #e6e6e6;
+  --brand-near-white: #f2f2f2;
+  --brand-white: #fafafa;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  color: var(--dark);
+  padding-top: 70px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "DM Serif Display", serif;
+}
+
+p,
+small {
+  opacity: 0.8;
+}
+
+label {
+  font-family: "DM Sans", serif;
+  font-weight: 500;
+}
+
+.dark {
+  color: var(--dark);
+}
+
+.bg--brand-yellow {
+  background-color: var(--brand-yellow);
+}
+
+.b--brand-yellow {
+  border-color: var(--brand-yellow);
+}
+
+.card-title {
+  opacity: 1;
+}
+
+.bg-light-gray {
+  background-color: var(--brand-light-gray);
+}
+
+.b--brand-gray {
+  border-color: var(--brand-gray);
+}
